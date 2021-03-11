@@ -12,7 +12,7 @@
 
     <app-comments></app-comments>
 
-    <div className="loader"></div>
+    <app-loader></app-loader>
   </div>
 </template>
 
@@ -20,9 +20,10 @@
 import AppForm from "@/components/AppForm";
 import AppInfo from "@/components/AppInfo";
 import AppComments from "@/components/AppComments";
+import AppLoader from "@/components/AppLoader";
 
 export default {
-  components: {AppComments, AppForm, AppInfo}
+  components: {AppLoader, AppComments, AppForm, AppInfo}
 }
 </script>
 
