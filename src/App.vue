@@ -4,9 +4,6 @@
     <app-info></app-info>
   </div>
   <div className="container">
-    <p>
-      <button className="btn primary" @click="loadComments">Загрузить комментарии</button>
-    </p>
     <app-comments></app-comments>
   </div>
 </template>
@@ -17,7 +14,7 @@ import AppInfo from "@/components/AppInfo";
 import AppComments from "@/components/AppComments";
 
 export default {
-  components: {AppComments, AppForm, AppInfo}
+  components: {AppComments, AppForm, AppInfo},
 
 }
 </script>

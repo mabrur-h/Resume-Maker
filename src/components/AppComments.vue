@@ -1,28 +1,34 @@
 <template>
   <app-loader v-if="loading"></app-loader>
-  <div className="card" v-else>
-    <h2>Комментарии</h2>
-    <ul className="list">
-      <li className="list-item" v-for="comment in comments" :key="comment.id">
-        <div>
-          <p><strong>{{ comment.email }}</strong></p>
-          <small>{{ comment.body }}</small>
-        </div>
-      </li>
-    </ul>
-    <button @click="loadComments">load</button>
+  <div v-else>
+    <p v-if="!showComments">
+      <button className="btn primary" @click="loadComments">Загрузить комментарии</button>
+    </p>
+    <div className="card" v-else>
+      <h2>Комментарии</h2>
+      <ul className="list">
+        <li className="list-item" v-for="comment in comments" :key="comment.id">
+          <div>
+            <p><strong>{{ comment.email }}</strong></p>
+            <small>{{ comment.body }}</small>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import AppLoader from "@/components/AppLoader";
+
 export default {
 name: "AppComments",
   components: {AppLoader},
   data() {
     return {
       comments: [],
-      loading: false
+      loading: false,
+      showComments: false
     }
   },
   methods: {
@@ -46,9 +52,8 @@ name: "AppComments",
             body: comment.body
           })
           this.loading = false
+          this.showComments = true
         })
-
-        console.log(this.comments)
       } catch (e) {
         console.log(e)
       }
