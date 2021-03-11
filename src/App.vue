@@ -1,18 +1,13 @@
 <template>
   <div className="container column">
     <app-form></app-form>
-
     <app-info></app-info>
-
   </div>
   <div className="container">
     <p>
-      <button className="btn primary">Загрузить комментарии</button>
+      <button className="btn primary" @click="loadComments">Загрузить комментарии</button>
     </p>
-
     <app-comments></app-comments>
-
-    <app-loader></app-loader>
   </div>
 </template>
 
@@ -20,10 +15,10 @@
 import AppForm from "@/components/AppForm";
 import AppInfo from "@/components/AppInfo";
 import AppComments from "@/components/AppComments";
-import AppLoader from "@/components/AppLoader";
 
 export default {
-  components: {AppLoader, AppComments, AppForm, AppInfo}
+  components: {AppComments, AppForm, AppInfo}
+
 }
 </script>
 
