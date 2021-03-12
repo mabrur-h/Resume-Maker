@@ -15,24 +15,31 @@
       <textarea id="value" rows="3" v-model="textArea"></textarea>
     </div>
 
-    <button className="btn primary">Добавить</button>
+    <button className="btn primary" :disabled="!(textArea.length > 3)">Добавить</button>
   </form>
 </template>
 
 <script>
 export default {
-name: "AppForm",
+  emits: ['add-block'],
+  name: "AppForm",
   data() {
   return {
-    textType: '',
+    textType: 'title',
     textArea: ''
   }
   },
   methods: {
   submitForm() {
-    console.log(this.textType)
-    console.log(this.textArea)
-  }
+    this.$emit('block-added', {
+      type: this.textType,
+      value: this.textArea,
+      id: Date.now()
+    })
+
+    this.textArea = ''
+    this.textType = 'title'
+  },
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <h3>Добавьте первый блок, чтобы увидеть результат</h3>
+  <h3>{{ $attrs.value }}</h3>
 </template>
 
 <script>

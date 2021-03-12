@@ -1,10 +1,10 @@
 <template>
   <div className="container column">
-    <app-form></app-form>
-    <app-info></app-info>
+    <AppForm @block-added="blockAdd"></AppForm>
+    <AppInfo ></AppInfo>
   </div>
   <div className="container">
-    <app-comments></app-comments>
+    <AppComments></AppComments>
   </div>
 </template>
 
@@ -15,7 +15,17 @@ import AppComments from "@/components/AppComments";
 
 export default {
   components: {AppComments, AppForm, AppInfo},
-
+  data() {
+    return {
+      blocks: []
+    }
+  },
+  methods: {
+    blockAdd() {
+      this.blocks.push('title')
+      console.log(this.blocks)
+    }
+  }
 }
 </script>
 
