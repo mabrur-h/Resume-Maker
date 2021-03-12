@@ -16,15 +16,6 @@ import AppComments from "@/components/AppComments";
 export default {
   components: {AppComments, AppForm, AppInfo},
   data() {
-    return {
-      blocks: []
-    }
-  },
-  methods: {
-    blockAdd() {
-      this.blocks.push('title')
-      console.log(this.blocks)
-    }
   }
 }
 </script>
